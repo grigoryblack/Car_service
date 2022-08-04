@@ -2,9 +2,13 @@ import React from "react";
 import './HeaderManager.css';
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+
+
 
 function HeaderManager() {
     const [isActive, setIsActive] = useState(false)
+
     return (
         <>
             <div className="header">
@@ -15,9 +19,8 @@ function HeaderManager() {
                     <div className="dropdown_order order_style" onClick={(e) => setIsActive(!isActive)}>Личный кабинет
                         {isActive && (
                             <div className="order_contaner_table">
-                                <div className="subtitle_order_table">Имя: </div>
-                                <div className="subtitle_order_table">Должность: </div>
-                                <button className="exit_button_table" ><a href="/" className=""> Выход </a></button>
+                                <div className="subtitle_order_table">Имя:  </div>
+                                <button className="exit_button_table"><a href="/" className=""> Выход </a></button>
                             </div>
                         )}
                     </div>
@@ -26,6 +29,7 @@ function HeaderManager() {
             </div>
         </>
     )
+
 }
 
 export default HeaderManager;

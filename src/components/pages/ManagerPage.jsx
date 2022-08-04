@@ -4,6 +4,7 @@ import HeaderManager from "../cummon/Header/HeaderManager";
 import CollapsibleTable from "../cummon/Table/CollapsibleTable";
 
 
+
 function ManagerPage() {
     return (
         <>

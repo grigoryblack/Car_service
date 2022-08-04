@@ -549,3 +549,22 @@
     display: flex;
     justify-content: space-between;
 }
+
+.car_icon{
+    background: url("./car.png");
+    width: 239px;
+    height: 318px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title_icon_place{
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 22px;
+    margin-top: 35px;
+    margin-bottom: 21px;
+}

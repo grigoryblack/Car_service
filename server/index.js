@@ -3,6 +3,10 @@ const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
 
+
+
+// Работа с таблицами
+
 const db = mysql.createConnection({
     user: 'root',
     host: 'localhost',

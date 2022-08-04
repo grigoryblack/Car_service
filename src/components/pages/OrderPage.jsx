@@ -7,143 +7,8 @@ import Header from '../cummon/Header/Header'
 import Footer from '../cummon/Footer/Footer'
 import Axios from 'axios'
 
-
 import { Link } from "react-router-dom"
-
-const options1 =[
-    {
-        value: '10:00',
-        label: '10:00'
-    },
-    {
-        value: '11:00',
-        label: '11:00'
-    },
-    {
-        value: '12:00',
-        label: '12:00'
-    },
-    {
-        value: '13:00',
-        label: '13:00'
-    },
-    {
-        value: '14:00',
-        label: '14:00'
-    },
-    {
-        value: '15:00',
-        label: '15:00'
-    }
-]
-
-const options2 =[
-    {
-        value: '10:00',
-        label: '10:00'
-    },
-    {
-        value: '11:00',
-        label: '11:00'
-    },
-    {
-        value: '12:00',
-        label: '12:00'
-    },
-    {
-        value: '13:00',
-        label: '13:00'
-    },
-    {
-        value: '14:00',
-        label: '14:00'
-    },
-    {
-        value: '15:00',
-        label: '15:00'
-    }
-]
-
-const options3 =[
-    {
-        value: '10:00',
-        label: '10:00'
-    },
-    {
-        value: '11:00',
-        label: '11:00'
-    },
-    {
-        value: '12:00',
-        label: '12:00'
-    },
-    {
-        value: '13:00',
-        label: '13:00'
-    },
-    {
-        value: '14:00',
-        label: '14:00'
-    },
-    {
-        value: '15:00',
-        label: '15:00'
-    }
-]
-
-const options4 =[
-    {
-        value: '10:00',
-        label: '10:00'
-    },
-    {
-        value: '11:00',
-        label: '11:00'
-    },
-    {
-        value: '12:00',
-        label: '12:00'
-    },
-    {
-        value: '13:00',
-        label: '13:00'
-    },
-    {
-        value: '14:00',
-        label: '14:00'
-    },
-    {
-        value: '15:00',
-        label: '15:00'
-    }
-]
-
-const options5 =[
-    {
-        value: '10:00',
-        label: '10:00'
-    },
-    {
-        value: '11:00',
-        label: '11:00'
-    },
-    {
-        value: '12:00',
-        label: '12:00'
-    },
-    {
-        value: '13:00',
-        label: '13:00'
-    },
-    {
-        value: '14:00',
-        label: '14:00'
-    },
-    {
-        value: '15:00',
-        label: '15:00'
-    }
-]
+import MultipleSelectNative from "../cummon/TimeAndPlace/NativeTime";
 
 const options6 =[
     {
@@ -190,55 +55,10 @@ const options6 =[
 
 function OrderPage(){
 
-    const [currentTime1,setCurrentTime1]= useState()
-    const [currentTime2,setCurrentTime2]= useState()
-    const [currentTime3,setCurrentTime3]= useState()
-    const [currentTime4,setCurrentTime4]= useState()
-    const [currentTime5,setCurrentTime5]= useState()
     const [currentRadius6,setCurrentRadius6]= useState()
-
-    const getValue1 = () => {
-        return currentTime1 ? options1.find(c=>c.value === currentTime1): ''
-    }
-
-    const getValue2 = () => {
-        return currentTime2 ? options2.find(c=>c.value === currentTime2): ''
-    }
-
-    const getValue3 = () => {
-        return currentTime3 ? options3.find(c=>c.value === currentTime3): ''
-    }
-
-    const getValue4 = () => {
-        return currentTime4 ? options4.find(c=>c.value === currentTime4): ''
-    }
-
-    const getValue5 = () => {
-        return currentTime5 ? options5.find(c=>c.value === currentTime5): ''
-    }
 
     const getValue6 = () => {
         return currentRadius6 ? options6.find(c=>c.value === currentRadius6): ''
-    }
-
-    const onChange1 = (newValue:any) =>{
-        setCurrentTime1(newValue.value)
-    }
-
-    const onChange2 = (newValue:any) =>{
-        setCurrentTime2(newValue.value)
-    }
-
-    const onChange3 = (newValue:any) =>{
-        setCurrentTime3(newValue.value)
-    }
-
-    const onChange4 = (newValue:any) =>{
-        setCurrentTime4(newValue.value)
-    }
-
-    const onChange5 = (newValue:any) =>{
-        setCurrentTime5(newValue.value)
     }
 
     const onChange6 = (newValue:any) =>{
@@ -275,11 +95,6 @@ function OrderPage(){
             work5:work5,
             work6:work6,
             work7:work7,
-            time1:currentTime1,
-            time2:currentTime2,
-            time3:currentTime3,
-            time4:currentTime4,
-            time5:currentTime5,
             radius:currentRadius6,
         }).then(()=>{
             console.log("success");
@@ -294,11 +109,26 @@ function OrderPage(){
                 <div className="first_block_order">
                     <div className="title_order1"> Выбор места</div>
                     <div className="place_position_order">
-                        <Select value={getValue1()} onChange={onChange1} options={options1} placeholder="Место №1" className="place_style"/>
-                        <Select value={getValue2()} onChange={onChange2} options={options2} placeholder="Место №2" className="place_style"/>
-                        <Select value={getValue3()} onChange={onChange3} options={options3} placeholder="Место №3" className="place_style"/>
-                        <Select value={getValue4()} onChange={onChange4} options={options4} placeholder="Место №4" className="place_style"/>
-                        <Select value={getValue5()} onChange={onChange5} options={options5} placeholder="Место №5" className="place_style"/>
+                       <div className="car_icon">
+                           <div className="title_icon_place">Место №1</div>
+                           <MultipleSelectNative/>
+                       </div>
+                        <div className="car_icon">
+                            <div className="title_icon_place">Место №2</div>
+                            <MultipleSelectNative/>
+                        </div>
+                        <div className="car_icon">
+                            <div className="title_icon_place">Место №3</div>
+                            <MultipleSelectNative/>
+                        </div>
+                        <div className="car_icon">
+                            <div className="title_icon_place">Место №4</div>
+                            <MultipleSelectNative/>
+                        </div>
+                        <div className="car_icon">
+                            <div className="title_icon_place">Место №5</div>
+                            <MultipleSelectNative/>
+                        </div>
 
 
                     </div>
@@ -410,7 +240,7 @@ function OrderPage(){
                                     </div>
                                     <div className="right_side_contaner">
                                         <div className="subtitle_info_check">Место:</div>
-                                        <div className="subtitle_info_check">Время:<div className="info_style">{currentTime1}{currentTime2}{currentTime3}{currentTime4}{currentTime5}</div></div>
+                                        <div className="subtitle_info_check">Время:<div className="info_style"></div></div>
                                     </div>
                                 </div>
                                 <div className="second_contaner_windo">
