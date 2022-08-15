@@ -48,7 +48,7 @@ function RegistrationManagerPage() {
                         }}
                         className="input_register_login"
                     />
-                    <Link to="/LoginManager" onClick={register} className="form_button_register"> Зарегистрироваться </Link>
+                    <Link to="/Login" onClick={register} className="form_button_register"> Зарегистрироваться </Link>
 
                     <div className="subtitle_from">Есть аккаунт? <Link to = '/Login' className = "subtitle_from_link"> Войдите!</Link></div>
                 </div>

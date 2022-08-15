@@ -240,7 +240,7 @@ function OrderPage(){
                                     </div>
                                     <div className="right_side_contaner">
                                         <div className="subtitle_info_check">Место:</div>
-                                        <div className="subtitle_info_check">Время:<div className="info_style"></div></div>
+                                        <div className="subtitle_info_check">Время: <div className="info_style"></div></div>
                                     </div>
                                 </div>
                                 <div className="second_contaner_windo">

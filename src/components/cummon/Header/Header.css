@@ -11,31 +11,14 @@
 }
 
 .left_line_user{
-    width: 622px;
+    width: 625px;
     height: 1px;
     background-color: #365CFF;
 }
 
-.header_account{
-    margin: 0;
-    font-family: 'Exo 2';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    /* identical to box height */
-
-    color: #365CFF;
-
-    text-decoration: none;
-}
-
-.header_account:hover{
-    font-weight: 600;
-}
 
 .right_line_user{
-    width: 500px;
+    width: 625px;
     height: 1px;
     background-color: #365CFF;
 }
@@ -44,10 +27,4 @@
     background: url("./Logo.png");
     width: 226px;
     height: 106px;
-}
-
-.right_line_user_end{
-    width: 60px;
-    height: 1px;
-    background-color: #365CFF;
 }

@@ -23,9 +23,6 @@ function MainPage() {
                                 <div className="sign_text">Записаться</div>
                             </div>
                         </Link>
-                        <Link to="/" className="link_fix">
-                            <div className="disable_button">Отменить запись</div>
-                        </Link>
                     </div>
                 </div>
                 <Footer />

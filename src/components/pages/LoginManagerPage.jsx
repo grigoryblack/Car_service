@@ -41,6 +41,8 @@ function LoginManagerPage() {
 
                 <a href="/" className="logo_register_login">
                 </a>
+
+                <div className="success_login">{loginStatus}</div>
            
                 <div className="form_registration_login">
                     <div className="title_form"> Войдите в аккаунт </div>
@@ -65,7 +67,6 @@ function LoginManagerPage() {
                     <Link to="/" onClick={login} className="form_button_login"> Войти </Link>
                     <div className="subtitle_from">Нет аккаунта? <Link to = '/Registration' className = "subtitle_from_link"> Зарегистрируйтесь!</Link></div>
                 </div>
-                <h1>{loginStatus}</h1>
             </div>
         </>
     );

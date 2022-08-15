@@ -7,8 +7,8 @@ import LoginManagerPage from "./components/pages/LoginManagerPage";
 import ManagerPage from "./components/pages/ManagerPage";
 
 import {Routes, Route} from 'react-router-dom'
-function App() {
 
+function App() {
   return (
     <>
     <Routes>

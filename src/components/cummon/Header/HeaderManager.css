@@ -149,7 +149,7 @@
 }
 
 
-.exit_button_table a{
+.exit_button_table{
     text-decoration: none;
     color: red;
     font-family: 'Exo 2';

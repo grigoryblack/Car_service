@@ -1,7 +1,7 @@
 import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import './NativeTime.css'
 
 const times = [
     '10:00',
@@ -31,12 +31,10 @@ export default function MultipleSelectNative() {
 
     return (
         <div>
-            <FormControl sx={{ minWidth: 175, maxWidth: 300,minHeight:160 , }}>
-                <InputLabel shrink htmlFor="select-multiple-native">
-                    Время
-                </InputLabel>
+            <FormControl sx={{ minWidth: 175, maxWidth: 300,minHeight:160}}>
+                <div className="subtitle_time"> Время </div>
                 <Select
-                    sx={{minHeight:160,minWidth: 175}}
+                    sx={{minHeight:160,minWidth: 175,}}
                     multiple
                     native
                     value={personTime}
