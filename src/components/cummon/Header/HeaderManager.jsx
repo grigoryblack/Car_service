@@ -1,34 +1,32 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './HeaderManager.css';
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import {useEffect} from "react";
-import Axios from "axios";
-import  { useNavigate }  from 'react-router-dom';
-
+import {
+    onAuthStateChanged,
+    signOut,
+} from "firebase/auth";
+import { auth } from "../../../firebase-config";
+import { Navigate } from 'react-router-dom';
 
 
 function HeaderManager() {
-    const [isActive, setIsActive] = useState(false);
-    const [loginStatus, setLoginStatus] = useState("");
-    const navigate = useNavigate();
 
+    const logout = async () => {
+        await signOut(auth);
+    };
 
-    useEffect(() => {
-        Axios.get("http://localhost:3001/login").then((response) => {
-            if (response.data.loggedIn === true) {
-                setLoginStatus(response.data.user[0].username);
-            }
+    const [user, setUser] = useState({});
+
+    useEffect(()=>{
+        return onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
         });
-    }, []);
+    })
 
-    Axios.defaults.withCredentials = true;
+    const [isActive, setIsActive] = useState(false);
 
-    function LogOut(){
-        navigate('/');
-    }
-
-    return (
+    return user? (
         <>
             <div className="header">
                 <div className="left_line"></div>
@@ -38,15 +36,18 @@ function HeaderManager() {
                     <div className="dropdown_order order_style" onClick={(e) => setIsActive(!isActive)}>Личный кабинет
                         {isActive && (
                             <div className="order_contaner_table">
-                                <div className="subtitle_order_table">Имя: {loginStatus} </div>
-                                <button className="exit_button_table" onClick={LogOut}> Выход </button>
+                                <div className="subtitle_order_table">Имя: {user?.email} </div>
+                                <button className="exit_button_table" onClick={logout}> Выход </button>
                             </div>
                         )}
                     </div>
                 </div>
                 <div className="right_line_end"></div>
+
             </div>
         </>
+    ): (
+        <Navigate to="/Login"/>
     )
 
 }

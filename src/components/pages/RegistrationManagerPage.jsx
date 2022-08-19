@@ -1,24 +1,30 @@
 import React from "react";
 import './LoginManagerPage.css'
 import { useState } from "react";
-import Axios from "axios";
 import {Link} from 'react-router-dom';
+
+import {
+    createUserWithEmailAndPassword
+} from "firebase/auth";
+import { auth } from "../../firebase-config";
 
 
 function RegistrationManagerPage() {
 
-    const [usernameReg, setUsernameReg] = useState("");
-    const [passwordReg, setPasswordReg] = useState("");
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
 
-    Axios.defaults.withCredentials = true;
-
-    const register = () => {
-        Axios.post("http://localhost:3001/register", {
-            username: usernameReg,
-            password: passwordReg,
-        }).then((response) => {
-            console.log(response);
-        });
+    const register = async () => {
+        try {
+            const user = await createUserWithEmailAndPassword(
+                auth,
+                registerEmail,
+                registerPassword
+            );
+            console.log(user);
+        } catch (error) {
+            console.log(error.message);
+        }
     };
 
 
@@ -35,16 +41,16 @@ function RegistrationManagerPage() {
                     <label className="title_name_psw"> Ваше имя </label>
                     <input
                         type="text"
-                        onChange={(e) => {
-                            setUsernameReg(e.target.value);
+                        onChange={(event) => {
+                            setRegisterEmail(event.target.value);
                         }}
                         className="input_register_login"
                     />
                     <label className="title_name_psw"> Пароль </label>
                     <input
                         type="text"
-                        onChange={(e) => {
-                            setPasswordReg(e.target.value);
+                        onChange={(event) => {
+                            setRegisterPassword(event.target.value);
                         }}
                         className="input_register_login"
                     />
